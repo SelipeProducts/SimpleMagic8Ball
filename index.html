@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+
+  </head>
+  <body>
+  	 <div>
+    		<input type="text" id ="question" placeholder="Ask a question"/>
+    		<button id="btnPress">Press</button><br>
+    		<img src="image/magic-8-ball_goForIt.png" id="ballImg">
+    	
+    </div>
+	<script type="text/javascript">
+		//Array os String filled with images
+		var photoSrcArray =[
+			"image/magic-8-ball_yes.png",
+			"image/magic-8-ball_no.png",
+			"image/magic-8-ball_itWillPass.png",
+			"image/magic-8-ball_countOnIt.png",
+			"image/magic-8-ball_mayBe.png",
+			"image/magic-8-ball_yourHot.png",
+			"image/magic-8-ball_askAgain.png",
+			"image/magic-8-ball_noDoubt.png",
+			"image/magic-8-ball_absolutely.png",
+			"image/magic-8-ball_goForIt.png",
+			"image/magic-8-ball_waitForIt.png",
+			"image/magic-8-ball_notNow.png",
+			"image/magic-8-ball_cannotTellNow.png",
+			"image/magic-8-ball_veryLikely.png",
+			"image/magic-8-ball_itIsOk.png"
+
+
+
+
+		];
+		//Variable gets length of array
+		var arrayLength = photoSrcArray.length;
+		// Variable that will hold array index value is declared
+		var photoIndexSelect;
+
+		//EventListener for when btn is pressed
+		var btn_press = document.getElementById("btnPress");
+		btn_press.addEventListener('click',function(){
+			changPic();
+		});
+
+		//Function that changes picture. Is called through above event listener
+		function changPic(){
+			//photoIndexSelect is initialized with a random number
+			photoIndexSelect = Math.floor(Math.random() * (arrayLength));
+			//String from array is selected and assigned to new var
+			var newImgSrc = photoSrcArray[photoIndexSelect];
+			//alert(newImgSrc);
+			//Img element with id ballImg src is changed to the new string above
+			document.getElementById("ballImg").src = newImgSrc;
+		}
+
+	</script> 
+  </body>
+</html>
